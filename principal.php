@@ -20,14 +20,17 @@ $nivel = $_SESSION['nivel'];
 
 <body>
 	<center>
-		<a href="addusuario.php">
-			Adicionar Usuário </a> |
 		<?php
+		if ($nivel < 3) { ?>
+			<a href="addusuario.php"> Adicionar Usuário </a> |
+		<?php }
+
+
 		if ($nivel == 1) { ?>
 			<a href="mudaracesso.php">Mudar acesso</a>
-		<?php } ?> <br>
+		<?php } ?>
+		<br>
 		<a href="logout.php">Sair</a>
-	</center>
-</body>
+		</cen </body>
 
 </html>

@@ -3,7 +3,8 @@ session_start();
 
 include('conexao.php');
 include('funcoes.php');
-include('validarlogin.php');
+include('validaradmingerente.php');
+
 $nome = isset($_POST['nome']) ? $_POST['nome'] : '';
 $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : '';
 $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : '';
@@ -31,6 +32,10 @@ if ($nome <> NULL) {
         $insertlogin = "INSERT INTO login (cpf, login, senha, nivel)
         VALUES('$cpf', '$login', '$senhacriptografada', 3)";
         $querylogin = mysqli_query($conexao, $insertlogin);
+
+        echo '<script>alert("Usuario Adicionado Com sucesso");
+        window.location="addusuario.php";
+        </script>';
 
     } else {
         echo '<script>alert("CPF e/ou Login já cadastrados");
