@@ -10,5 +10,5 @@ $nivel = isset($_POST['nivel']) ? $_POST['nivel'] : '';
 $update = "UPDATE login SET nivel = '$nivel' WHERE cpf = '$cpf'";
 $query = mysqli_query($conexao, $update);
 
-header('location: mudaracesso.php');
+header('location: chamausuario.php');
 ?>
