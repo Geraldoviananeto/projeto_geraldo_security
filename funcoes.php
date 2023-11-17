@@ -1,13 +1,8 @@
 <?php
 
-function criptografar ($valor) {
-    return md5 ($valor);
+function criptografar($valor){
+    return MD5 ($valor);
+
 }
-
-
-
-
-
-
 
 ?>

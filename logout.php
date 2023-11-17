@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-$_SESSION['logado'] = false;
+
+$_SESSION[ 'logado'] = false;
 
 session_destroy();
 
-header('Location: index.php');
-
+header('location: index.php');
 
 ?>
