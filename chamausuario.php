@@ -7,7 +7,7 @@ include('validaradmin.php');
 
 $cpf = $_GET['cod'];
 
-$select = "SELECT nome, descricao, nivel.id, login.cpf FROM usuario 
+$select = "SELECT nome, descricao, nivel.id, login.cpf, telefone FROM usuario 
 			INNER JOIN login ON usuario.cpf = login.cpf
 			INNER JOIN nivel ON nivel.id = nivel
 			WHERE usuario.cpf = '$cpf'";
@@ -32,7 +32,9 @@ $queryselect = mysqli_query($conexao, $select);
                     <td>Nome</td>
                     <td>Tipo de Usuário</td>
                     <td>Novo Tipo de Usuário</td>
-                    <td>Alterar</td>
+                    <td>CPF</td>
+                    <td>Telefone</td>
+                    <td>Atualizar</td>
                 </tr>
                 <?php
                 while ($linha = mysqli_fetch_row($queryselect)) { ?>
@@ -45,19 +47,27 @@ $queryselect = mysqli_query($conexao, $select);
                         </td>
                         <td>
                             <select name="nivel">
+                                <option value="0"> </option>
                                 <option value="1">Administrador</option>
                                 <option value="2">Gerente</option>
                                 <option value="3">Usuário</option>
                             </select>
                         </td>
                         <td>
+                            <?php echo $linha[3] ?>
+                        </td>
+                        <td>
+                            <input type="text" name="telefone" value=<?php echo $linha[4] ?>>
+                        </td>
+                        <td>
                             <input type="hidden" name="cpf" value=<?php echo $linha[3] ?>>
-                            <input type="submit" name="alterar" value="Alterar">
+                            <input type="submit" name="alterar" value="Atualizar">
                         </td>
                     </tr>
                 <?php } ?>
             </table>
         </form>
+        <a href="mudaracesso.php">Voltar</a>
     </center>
 </body>
 
