@@ -28,11 +28,11 @@ $nivel = $_SESSION['nivel'];
             <?php
         }
         if ($nivel == 1) { ?>
-             <a href="mudaracesso.php">Mudar acesso</a><br>
+            <a href="mudaracesso.php">Mudar acesso</a><br>
         <?php } ?>
-        <a href="alterardados.php">Alterar Dados</a><br>
 
-         <a href="logout.php">Sair</a>
+        <a href="alterardados.php">Alterar Dados</a><br>
+        <a href="logout.php">Sair</a>
 
     </center>
 
