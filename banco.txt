@@ -41,6 +41,17 @@ INSERT INTO usuario (nome, cpf, telefone) VALUES ('gerente', '123456789016', '83
 
 INSERT INTO login (cpf, login, senha, nivel) VALUES ('123456789016', 'gerente', 'gerente', 2);
 
+CREATE TABLE LOG (
+id INT AUTO_INCREMENT PRIMARY KEY,
+cpf VARCHAR(15),
+cpf_alterado VARCHAR(15),
+DATA TIMESTAMP,
+novo_nivel INTEGER,
+CONSTRAINT fk_cpf_log FOREIGN KEY (cpf) REFERENCES usuario (cpf),
+CONSTRAINT fk_cpf_alterado FOREIGN KEY (cpf_alterado) REFERENCES usuario (cpf),
+CONSTRAINT fk_novo_nivel FOREIGN KEY (novo_nivel) REFERENCES nivel (id)
+);
+
 //Criptocrafia 
 UPDATE login SET senha = MD5(senha) WHERE login = login
 UPDATE login SET senha= MD5(senha) WHERE login = 'gerente'
@@ -54,3 +65,4 @@ DELETE FROM usuario WHERE nome = 'gerente'
 SELECT * FROM usuario
 SELECT * FROM  login
 SELECT * FROM nivel
+SELECT * FROM log
